@@ -1,104 +1,80 @@
+// imports
 const inquirer = require("inquirer");
-const fs = require("fs");
+const generatorMarkdown = require("./generateMarkdown")
+const fs = require("fs"); 
 
-const generateMarkdown = require("./utils/generateMarkdown");
-const api = require("./utils/api");
-require('dotenv').config();
-process.env
-
-
-
+// Questions asked to the user
 const questions = [
-    {
-        type: "input",
-        name: "GitHubUsername",
-        message: "What is your GitHub Username?"
-    },
-    {
-        type: "input",
-        name: "ProjectTitle",
-        message: "What would you like your Project Title to be named?"
-    },
-    {
-        type: "input",
-        name: "ProjectDescription",
-        message: "Please write a short description of your project."
-    },
-    {
-        type: "input",
-        name: "Install",
-        message: "What are the steps required to install your project?"
-    },
-    {
-        type: "input",
-        name: "Usage",
-        message: "Please provide examples of how your project could be used."
-    },
-    {
-        type: "list",
-        name: "License",
-        message: "Choose what license you would like to use for your project.",
-        choices: [{
-            name: "GNU General Public License v3.0",
-            },
-            {
-            name: "MIT License"
-            },
-            {
-            name: "The Unlicense"
-            },
-            {
-            name: "Apache License 2.0"
-            }]
-    },
-    {
-        type: "input",
-        name: "Contributors",
-        message: "How many contributors will there be on your project?",
-        validate: validateContributors
-    },
-    {
-        type: "input",
-        name: "FAQ1",
-        message: "How do you initialize the project?"
-    }
+  {
+    type: "input",
+    message: "What is your GitHub username?",
+    name: "UserName",
+  },
+  {
+    type: "input",
+    message: "What is your email address?",
+    name: "Email",
+  },
 
+  {
+    type: "input",
+    message: "What is the title for your project?",
+    name: "Title",
+  },
+  {
+    type: "input",
+    message: "Please give description of your project.",
+    name: "Description",
+  },
+  {
+    type: "input",
+    message: "What necessary dependencies must be installed to run this app?",
+    name: "Installation",
+  },
+  {
+    type: "input",
+    message: "What is this app used for?",
+    name: "Usage",
+  },
+  {
+    type: "input",
+    message: "What license was used for this README?",
+    name: "License",
+  },
+
+  {
+    type: "input",
+    message: "Please add contributors",
+    name: "Contributor",
+  },
+  {
+    type: "input",
+    message: "What command do you use to test this App?",
+    name: "Test",
+  }
 ];
 
-function validateContributors(num)
-{
-   var reg = /^\d+$/;
-   return reg.test(num) || "Please enter a valid number";
-}
-
-function promptUser(){
-    return inquirer.prompt(questions)
-}
-
-
+// Writing to a file 
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, function(err){
-        if (err){
-            console.error(err);
-        }
-    });
-}
 
-async function init() {
-    console.log("Welcome to the README Generator!")
-    try {
-        const answers = await promptUser();
-        const user = await api.getUser(answers.GitHubUsername);
-        const readMe = generateMarkdown(answers, user);
-        writeToFile("GeneratedREADME.md", readMe);
-        console.log("**README file successfully created!**");
-        
-    }catch(err) {
-        console.log(err);
-        
-    }
-    
+fs.writeFile("./demo/"+fileName, data, function(err) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log ("Successfully wrote: " + fileName);
+})
 
 }
 
+
+// initialization function
+function init() {
+  inquirer.prompt(questions)
+  .then(function(data) {
+    writeToFile("DemoREADME.md", generatorMarkdown(data));
+  })
+}
+
+
+// run the app
 init();
