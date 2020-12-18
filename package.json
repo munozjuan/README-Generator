@@ -1,16 +1,28 @@
 {
-  "name": "static-site",
+  "name": "s",
   "version": "1.0.0",
-  "description": "",
+  "description": "init",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "juanmunoz",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.0",
     "dotenv": "^8.2.0",
     "inquirer": "^6.5.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/munozjuan/README-Generator.git"
+  },
+  "keywords": [
+    "readme"
+  ],
+  "bugs": {
+    "url": "https://github.com/munozjuan/README-Generator/issues"
+  },
+  "homepage": "https://github.com/munozjuan/README-Generator#readme"
 }
