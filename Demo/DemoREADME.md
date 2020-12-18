@@ -1,8 +1,8 @@
 
 # README Generator
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/munozjuan/README Generator)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/MunozJuan/README Generator)
 # Description
-tasked to create a readme generator
+This allows users to input information to create a README file
 # Table of Contents 
 * [Installation](#installation)
 * [Usage](#usage)
@@ -11,14 +11,14 @@ tasked to create a readme generator
 * [Tests](#tests)
 * [Questions](#questions)
 # Installation
-The following necessary dependencies must be installed to run the application properly: install
+The following necessary dependencies must be installed to run the application properly: inquire
 # Usage
-​This application is used for generating readme
+​This application is used for to help make a README file
 # License
-This project is license under the license license.
+This project is license under the MIT  license.
 # Contributing
-​Contributors: 1
+​Contributors: Juan 
 # Tests
-To run tests, you need to run the following command: a
+To run tests, you need to run the following command: Terminal
 # Questions
-If you have any questions about the repo, open an issue or contact munozjuan directly munoz.juan07@hotmail.com.
+If you have any questions about the repo, open an issue or contact MunozJuan directly JJJUUAANNN07@gmail.com.
